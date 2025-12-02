@@ -28,23 +28,23 @@ class StatusAction implements ActionInterface
 
         if (isset($model['subscription'])) {
             switch ($model['subscription']['status']) {
-                case SubscriptionStatus::STATUS_ACTIVE:
+                case SubscriptionStatus::ACTIVE:
                     $request->markAuthorized();
 
                     break;
-                case SubscriptionStatus::STATUS_PENDING:
+                case SubscriptionStatus::PENDING:
                     $request->markPending();
 
                     break;
-                case SubscriptionStatus::STATUS_CANCELED:
+                case SubscriptionStatus::CANCELED:
                     $request->markCanceled();
 
                     break;
-                case SubscriptionStatus::STATUS_COMPLETED:
+                case SubscriptionStatus::COMPLETED:
                     $request->markCaptured();
 
                     break;
-                case SubscriptionStatus::STATUS_SUSPENDED:
+                case SubscriptionStatus::SUSPENDED:
                     $request->markSuspended();
 
                     break;
@@ -64,35 +64,35 @@ class StatusAction implements ActionInterface
         }
 
         switch ($model['payment']['status']) {
-            case PaymentStatus::STATUS_OPEN:
+            case PaymentStatus::OPEN:
                 $request->markNew();
 
                 break;
-            case PaymentStatus::STATUS_PAID:
+            case PaymentStatus::PAID:
                 $request->markCaptured();
 
                 break;
-            case PaymentStatus::STATUS_CANCELED:
+            case PaymentStatus::CANCELED:
                 $request->markCanceled();
 
                 break;
-            case PaymentStatus::STATUS_PENDING:
+            case PaymentStatus::PENDING:
                 $request->markPending();
 
                 break;
-            case PaymentStatus::STATUS_FAILED:
+            case PaymentStatus::FAILED:
                 $request->markFailed();
 
                 break;
-            case SettlementStatus::STATUS_PAIDOUT:
+            case SettlementStatus::PAIDOUT:
                 $request->markPayedout();
 
                 break;
-            case PaymentStatus::STATUS_EXPIRED:
+            case PaymentStatus::EXPIRED:
                 $request->markExpired();
 
                 break;
-            case RefundStatus::STATUS_REFUNDED:
+            case RefundStatus::REFUNDED:
                 $request->markRefunded();
 
                 break;

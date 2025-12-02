@@ -44,7 +44,7 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
 
         $mandate = ArrayObject::ensureArrayObject($response);
 
-        if (MandateStatus::STATUS_VALID !== $mandate['status']) {
+        if (MandateStatus::VALID !== $mandate['status']) {
             throw new LogicException('Mandate is invalid.');
         }
 
@@ -56,7 +56,7 @@ class CreateSepaOneOffPaymentAction implements ActionInterface, ApiAwareInterfac
                 'currency' => $model['currency'],
             ],
             'description' => 'An on-demand payment (one-off)',
-            'recurringType' => SequenceType::SEQUENCETYPE_RECURRING,
+            'recurringType' => SequenceType::RECURRING,
             'redirectUrl' => $model['returnUrl'],
             'webhookUrl' => $model['notifyUrl'],
             'customerId' => $model['customer']['id'],
