@@ -32,9 +32,9 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, GenericTo
     protected $tokenFactory;
 
     /**
-     * @param GenericTokenFactoryInterface $genericTokenFactory
+     * @param GenericTokenFactoryInterface|null $genericTokenFactory
      */
-    public function setGenericTokenFactory(GenericTokenFactoryInterface $genericTokenFactory = null)
+    public function setGenericTokenFactory(?GenericTokenFactoryInterface $genericTokenFactory = null)
     {
         $this->tokenFactory = $genericTokenFactory;
     }
